@@ -31,7 +31,7 @@ struct FoodDetail: View {
                     .font(.headline)
 
                 Text("Carbs")
-                    .foregroundColor(food.isHighInCarbs ? .orange : .gray)
+                    .foregroundColor(food.isHighInCarbs ? .red : .gray)
                     .font(.headline)
             }
 

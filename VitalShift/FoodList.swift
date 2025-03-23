@@ -11,7 +11,7 @@ struct FoodList: View {
     @Environment(ModelData.self) var modelData
     
     var foods: [Food] {
-        modelData.foods
+        modelData.foods.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
     }
     
     var body: some View {

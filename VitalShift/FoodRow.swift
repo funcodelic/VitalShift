@@ -23,11 +23,11 @@ struct FoodRow: View {
                     
                     Spacer()
                     
-                    Text(food.isHighInSugar ? "Sugar" : "No Sugar")
+                    Text(food.isHighInSugar ? "Sugar" : "Sugar")
                         .foregroundColor(food.isHighInSugar ? .red : .gray)
                     
-                    Text(food.isHighInCarbs ? "Carbs" : "Low Carb")
-                        .foregroundColor(food.isHighInCarbs ? .orange : .gray)
+                    Text(food.isHighInCarbs ? "Carbs" : "Carbs")
+                        .foregroundColor(food.isHighInCarbs ? .red : .gray)
                 }
                 .font(.subheadline)
             }
