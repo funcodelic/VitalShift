@@ -26,15 +26,21 @@ struct FoodConfig: View {
                 TextField("Food Name", text: $editedFood.name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
+                
+                Divider()
 
                 Toggle("Healthy", isOn: $editedFood.isHealthy)
                     .padding(.horizontal)
+                
+                Divider()
 
                 Toggle("High in Sugar", isOn: $editedFood.isHighInSugar)
                     .padding(.horizontal)
 
                 Toggle("High in Carbs", isOn: $editedFood.isHighInCarbs)
                     .padding(.horizontal)
+                
+                Spacer()
             }
             .padding()
             .navigationTitle("Configure Food")

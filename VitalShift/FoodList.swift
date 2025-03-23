@@ -35,10 +35,9 @@ struct FoodList: View {
     }
 }
 
+
 // Preview
-struct FoodList_Previews: PreviewProvider {
-    static var previews: some View {
-        FoodList()
-            .environment(ModelData())
-    }
+#Preview {
+    FoodList()
+        .environment(ModelData())
 }

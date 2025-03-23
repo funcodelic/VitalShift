@@ -7,42 +7,6 @@
 
 import SwiftUI
 
-//struct FoodDetail: View {
-//    @Environment(ModelData.self) var modelData
-//    let food: Food
-//    
-//    var body: some View {
-//        VStack(alignment: .leading, spacing: 15) {
-//            Text(food.name)
-//                .font(.largeTitle)
-//                .fontWeight(.bold)
-//            
-//            Text(food.isHealthy ? "Healthy" : "Unhealthy")
-//                .foregroundColor(food.isHealthy ? .green : .red)
-//                .font(.title2)
-//                .fontWeight(.semibold)
-//            
-//            HStack(spacing: 20) {
-//                Text("Sugar")
-//                    .foregroundColor(food.isHighInSugar ? .red : .gray)
-//                    .font(.headline)
-//                
-//                Text("Carbs")
-//                    .foregroundColor(food.isHighInCarbs ? .orange : .gray)
-//                    .font(.headline)
-//            }
-//            Spacer()
-//        }
-//        .padding()
-//        .toolbar {
-//            ToolbarItem(placement: .navigationBarTrailing) {
-//                Button("Edit") {
-//                    // Edit action goes here
-//                }
-//            }
-//        }
-//    }
-//}
 
 struct FoodDetail: View {
     @Environment(ModelData.self) var modelData
@@ -51,7 +15,7 @@ struct FoodDetail: View {
     @State private var showingConfig = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 15) {
+        VStack(alignment: .center, spacing: 25) {
             Text(food.name)
                 .font(.largeTitle)
                 .fontWeight(.bold)
