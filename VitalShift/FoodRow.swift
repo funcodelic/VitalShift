@@ -39,9 +39,10 @@ struct FoodRow: View {
 }
 
 // Preview
-struct FoodRow_Previews: PreviewProvider {
-    static var previews: some View {
-        FoodRow(food: Food(name: "Apple", isHealthy: true, isHighInSugar: true, isHighInCarbs: true))
-            .previewLayout(.sizeThatFits)
+#Preview {
+    let foods = ModelData().foods
+    Group {
+        FoodRow(food: foods[0])
+        FoodRow(food: foods[1])
     }
 }

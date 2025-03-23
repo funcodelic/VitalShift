@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FoodDetail: View {
+    @Environment(ModelData.self) var modelData
     let food: Food
     
     var body: some View {
@@ -37,8 +38,9 @@ struct FoodDetail: View {
 }
 
 // Preview
-struct FoodDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        FoodDetail(food: Food(name: "Cheese", isHealthy: true, isHighInSugar: false, isHighInCarbs: false))
-    }
+#Preview {
+    let modelData = ModelData()
+    
+    return FoodDetail(food: modelData.foods[0])
+        .environment(modelData)
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 // Food struct
-struct Food: Identifiable {
-    let id = UUID()
-    let name: String
+struct Food: Hashable, Codable, Identifiable {
+    var id: Int
+    var name: String
     var isHealthy: Bool
     var isHighInSugar: Bool
     var isHighInCarbs: Bool

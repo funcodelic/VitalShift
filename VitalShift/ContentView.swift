@@ -9,15 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            
-            Text("Vital Shift")
-            
-        }
-        .padding()
+        
+        FoodList()
+        
     }
 }
 
 #Preview {
     ContentView()
+        .environment(ModelData())
 }
