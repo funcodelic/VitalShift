@@ -14,6 +14,9 @@ struct FoodList: View {
     @Environment(\.modelContext) private var context
     
     @State private var newFood: Food?
+    
+    @State private var foodToDelete: Food?
+    @State private var showDeleteAlert = false
 
     var body: some View {
         NavigationSplitView {
@@ -24,6 +27,21 @@ struct FoodList: View {
                     } label: {
                         FoodRow(food: food)
                     }
+                }
+                .onDelete { indexSet in
+                    if let index = indexSet.first {
+                        let sortedFoods = foods.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
+                        foodToDelete = sortedFoods[index]
+                        showDeleteAlert = true
+                    }
+                }
+                .alert("Delete Food?", isPresented: $showDeleteAlert, presenting: foodToDelete) { food in
+                    Button("Delete", role: .destructive) {
+                        context.delete(food)
+                    }
+                    Button("Cancel", role: .cancel) { }
+                } message: { food in
+                    Text("Are you sure you want to delete \"\(food.name)\"?")
                 }
             }
             .animation(.default, value: foods)
