@@ -10,6 +10,10 @@ import SwiftData
 
 
 struct FoodConfig: View {
+    @Environment(\.modelContext) private var context
+    @State private var alertMessage: String?
+    @State private var showAlert = false
+    
     @Environment(\.dismiss) private var dismiss
 
     var food: Food
@@ -52,16 +56,64 @@ struct FoodConfig: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        food.name = draft.name
-                        food.isHealthy = draft.isHealthy
-                        food.isHighInSugar = draft.isHighInSugar
-                        food.isHighInCarbs = draft.isHighInCarbs
-                        dismiss()
+                        if let error = validateName(draft.name) {
+                            alertMessage = error
+                            showAlert = true
+                        } else {
+                            food.name = draft.name
+                            food.isHealthy = draft.isHealthy
+                            food.isHighInSugar = draft.isHighInSugar
+                            food.isHighInCarbs = draft.isHighInCarbs
+                            dismiss()
+                        }
+                    }
+                    .alert("Invalid Name", isPresented: $showAlert) {
+                        Button("OK", role: .cancel) { }
+                    } message: {
+                        Text(alertMessage ?? "Unknown error")
                     }
                 }
             }
         }
+        
     }
+    
+    func validateName(_ name: String) -> String? {
+        let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmed.isEmpty {
+            return "Name cannot be empty."
+        }
+        if trimmed.lowercased() == "new food" {
+            return "\"New Food\" is a reserved name."
+        }
+        if !isFoodNameUnique(trimmed.lowercased()) {
+            return "\(trimmed) is already in use."
+        }
+
+        return nil
+    }
+    
+    func isFoodNameUnique(_ name: String) -> Bool {
+        let fetchDescriptor = FetchDescriptor<Food>(
+            sortBy: [SortDescriptor(\.name, order: .forward)]
+        )
+
+        do {
+            let allFoods = try context.fetch(fetchDescriptor)
+            for f in allFoods {
+                print("Found food: \(f.name)")
+            }
+
+            return !allFoods.contains {
+                $0 !== food && $0.name.lowercased() == name.lowercased()
+            }
+
+        } catch {
+            print("Failed to fetch foods: \(error)")
+            return true  // Fail-safe: assume it's unique
+        }
+    }
+    
 }
 
 
