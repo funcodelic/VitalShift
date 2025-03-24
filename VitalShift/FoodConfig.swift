@@ -78,7 +78,7 @@ struct FoodConfig: View {
         
     }
     
-    func validateName(_ name: String) -> String? {
+    private func validateName(_ name: String) -> String? {
         let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
         if trimmed.isEmpty {
             return "Name cannot be empty."
@@ -93,7 +93,7 @@ struct FoodConfig: View {
         return nil
     }
     
-    func isFoodNameUnique(_ name: String) -> Bool {
+     private func isFoodNameUnique(_ name: String) -> Bool {
         let fetchDescriptor = FetchDescriptor<Food>(
             sortBy: [SortDescriptor(\.name, order: .forward)]
         )
