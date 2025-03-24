@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		116DC7292D90A3190088EFAE /* SwiftData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116DC7282D90A3190088EFAE /* SwiftData.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		111D551C2D8F60C3003A36B6 /* VitalShift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VitalShift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		116DC7282D90A3190088EFAE /* SwiftData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftData.framework; path = System/Library/Frameworks/SwiftData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116DC7292D90A3190088EFAE /* SwiftData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +39,7 @@
 			isa = PBXGroup;
 			children = (
 				111D551E2D8F60C3003A36B6 /* VitalShift */,
+				116DC7272D90A3190088EFAE /* Frameworks */,
 				111D551D2D8F60C3003A36B6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +50,14 @@
 				111D551C2D8F60C3003A36B6 /* VitalShift.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		116DC7272D90A3190088EFAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				116DC7282D90A3190088EFAE /* SwiftData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +270,8 @@
 				DEVELOPMENT_TEAM = MHB45K4YJR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Vital Shift";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,6 +301,8 @@
 				DEVELOPMENT_TEAM = MHB45K4YJR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Vital Shift";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

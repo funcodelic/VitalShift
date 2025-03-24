@@ -1,5 +1,5 @@
 //
-//  FoodDetail.swift
+//  FoodConfig.swift
 //  VitalShift
 //
 //  Created by Troy Mulder on 3/22/25.
@@ -9,9 +9,7 @@ import SwiftUI
 
 
 struct FoodDetail: View {
-    @Environment(ModelData.self) var modelData
     let food: Food
-
     @State private var showingConfig = false
 
     var body: some View {
@@ -31,7 +29,7 @@ struct FoodDetail: View {
                     .font(.headline)
 
                 Text("Carbs")
-                    .foregroundColor(food.isHighInCarbs ? .red : .gray)
+                    .foregroundColor(food.isHighInCarbs ? .orange : .gray)
                     .font(.headline)
             }
 
@@ -51,10 +49,11 @@ struct FoodDetail: View {
     }
 }
 
-// Preview
+
 #Preview {
-    let modelData = ModelData()
-    
-    return FoodDetail(food: modelData.foods[0])
-        .environment(modelData)
+    let previewFood = Food(name:"Preview Food",
+                           isHealthy: false,
+                           isHighInSugar: false,
+                           isHighInCarbs: false)
+    FoodDetail(food: previewFood)
 }

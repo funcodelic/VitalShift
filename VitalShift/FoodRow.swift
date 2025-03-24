@@ -9,40 +9,48 @@ import SwiftUI
 
 struct FoodRow: View {
     var food: Food
-    
+
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 5) {
                 Text(food.name)
                     .font(.headline)
                     .padding(.bottom, 2)
-                
+
                 HStack(spacing: 10) {
                     Text(food.isHealthy ? "Healthy" : "Unhealthy")
                         .foregroundColor(food.isHealthy ? .green : .red)
-                    
+
                     Spacer()
-                    
-                    Text(food.isHighInSugar ? "Sugar" : "Sugar")
+
+                    Text("Sugar")
                         .foregroundColor(food.isHighInSugar ? .red : .gray)
-                    
-                    Text(food.isHighInCarbs ? "Carbs" : "Carbs")
+
+                    Text("Carbs")
                         .foregroundColor(food.isHighInCarbs ? .red : .gray)
                 }
                 .font(.subheadline)
             }
-            
+
             Spacer()
         }
         .padding()
     }
 }
 
-// Preview
 #Preview {
-    let foods = ModelData().foods
+    let previewFood1 = Food(name:"Apple",
+                           isHealthy: true,
+                           isHighInSugar: true,
+                           isHighInCarbs: false)
+    
+    let previewFood2 = Food(name:"Cake",
+                           isHealthy: false,
+                           isHighInSugar: true,
+                           isHighInCarbs: true)
+    
     Group {
-        FoodRow(food: foods[0])
-        FoodRow(food: foods[1])
+        FoodRow(food: previewFood1)
+        FoodRow(food: previewFood2)
     }
 }
