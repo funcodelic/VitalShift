@@ -14,7 +14,6 @@ struct FoodList: View {
     @Environment(\.modelContext) private var context
     
     @State private var newFood: Food?
-    
     @State private var foodToDelete: Food?
     @State private var showDeleteAlert = false
 
